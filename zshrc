@@ -1,7 +1,7 @@
 
 autoload -U colors && colors
 PROMPT="%{$fg[red]%}%n%{$fg[magenta]%}»%{$fg[white]%}%m%{$fg[blue]%}[%{$fg[cyan]%}%~%{$fg[blue]%}]%{$fg[black]%}* "
-RPROMPT="%{$fg[cyan]%}%*%{$reset_color%}"
+RPROMPT="%{$fg[yellow]%}%*%{$reset_color%}"
 
 setopt histignorealldups sharehistory
 
@@ -43,7 +43,8 @@ alias ls='ls --color=auto -CF'
 alias ll='ls -alF'
 alias la='ls -A'
 
-function mkcd() { mkdir -p $1; cd $1; }
+function mkcd() { mkdir -p $1 && cd $1 }
+function mvcd() { mv $1 && cd $1 }
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
