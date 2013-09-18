@@ -8,6 +8,7 @@ TMOUT=1
 TRAPALRM() { zle reset-prompt }
 
 setopt histignorealldups sharehistory
+setopt RM_STAR_WAIT
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -44,8 +45,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias ls='ls --color=auto -CF'
-alias ll='ls -alF'
-alias la='ls -A'
+alias ll='ls -alhF'
 
 function mkcd() { mkdir -p $1 && cd $1 }
 function mvcd() { mv $1 && cd $1 }
@@ -56,3 +56,5 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # intel path setup
 source /opt/intel/bin/compilervars.sh intel64 &> /dev/null
+
+
