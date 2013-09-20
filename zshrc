@@ -40,21 +40,27 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-alias grep='grep --color=auto'
+alias grep='grep -inC5 --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias ls='ls --color=auto -CF'
-alias ll='ls -alhF'
+alias ls='ls --color=auto -CFt --group-directories-first'
+alias ll='ls -alh'
+alias df='df -h'
+alias du='du -h'
+alias find-ps='ps -e | grep '
 
 function mkcd() { mkdir -p $1 && cd $1 }
 function mvcd() { mv $1 && cd $1 }
+function cdls() { cd $1 && ls $1 }
+function cdll() { cd $1 && ll $1 }
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# intel path setup
-source /opt/intel/bin/compilervars.sh intel64 &> /dev/null
+# intel compiler path setup
+[ -f /opt/intel/bin/compilervars.sh ] && \
+	source /opt/intel/bin/compilervars.sh intel64 &> /dev/null
 
 

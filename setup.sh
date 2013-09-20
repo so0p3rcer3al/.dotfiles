@@ -1,13 +1,21 @@
 
 for f in ~/.zshrc:zshrc \
-	~/.bashrc:bashrc;
-do LNK=${f%:*}; SRC=$(dirname "$0")/${f#*:};
-	LPT=$(readlink "$LNK")
-	SRC=$(readlink -f "$SRC")
-	if [ "$LPT" != "$SRC" ]; then
-		ln -si $SRC $LNK
-		echo "+ create $LNK"
+	~/.bashrc:bashrc \
+	~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings:sublime \
+	;
+do
+	# absolute paths of link and source
+	lnk_path=${f%:*}
+	src_path=$(readlink -f "$(dirname "$0")/${f#*:}")
+
+	# if the file already already exists and is a symlink, read its location.
+	# if it is not, this evaluates to ""
+	cur_lnk=$(readlink "$lnk_path")
+
+	if [ "$cur_lnk" != "$src_path" ]; then
+		ln -si $src_path $lnk_path
+		echo "+ create $lnk_path"
 	else
-		echo "* exists $LNK"
+		echo "*        $lnk_path"
 	fi
 done
