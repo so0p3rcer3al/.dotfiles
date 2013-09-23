@@ -1,8 +1,10 @@
 
 autoload -U colors && colors
 setopt PROMPT_SUBST
+
+# $(((HISTCMD%2))&& echo "☆" || echo "★")
 PROMPT='
-%{$fg[red]%}%n%{$fg[magenta]%}$(((HISTCMD%2))&&echo "☆"||echo "★")%{$fg[white]%}%m%{$fg[blue]%}[%{$fg[cyan]%}%~%{$fg[blue]%}]%{$fg[black]%}» %{$reset_color%}'
+%{$fg[red]%}%n%{$fg[magenta]%}$(echo ${$(shuf -e $(((HISTCMD%2))&& echo "★ ♠ ♦" || echo "☆ ♤ ♧ ♡ ♢")):0:1})%{$fg[white]%}%m%{$fg[blue]%}[%{$fg[cyan]%}%~%{$fg[blue]%}]%{$fg[black]%}» %{$reset_color%}'
 RPROMPT="%{$fg[yellow]%}%*%{$reset_color%}"
 TMOUT=1
 TRAPALRM() { zle reset-prompt }
