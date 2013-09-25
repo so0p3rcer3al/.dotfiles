@@ -54,8 +54,8 @@ alias find-ps='ps -e | grep '
 
 function mkcd() { mkdir -p $1 && cd $1 }
 function mvcd() { mv $1 && cd $1 }
-function cdls() { cd $1 && ls $1 }
-function cdll() { cd $1 && ll $1 }
+function cls() { cd $1 && ls }
+function cll() { cd $1 && ll }
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
