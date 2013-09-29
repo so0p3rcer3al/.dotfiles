@@ -16,6 +16,7 @@
 	"tab_completion": false,
 	"translate_tabs_to_spaces": false,
 	"use_tab_stops": true,
+	"rulers": [80],
 	"enable_telemetry": false,
 }
 
