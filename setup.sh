@@ -1,7 +1,7 @@
 
 for f in ~/.zshrc:zshrc \
 	~/.bashrc:bashrc \
-	~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings:sublime \
+	~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings:sublime3 \
 	;
 do
 	# absolute paths of link and source
