@@ -1,7 +1,9 @@
 {
 	"font_face": "Source Code Pro",
-	"auto_complete_delay": 25,
+	"auto_complete_delay": 15,
+	"animation_enabled": false,
 	"auto_match_enabled": false,
+	"default_line_ending": "unix",
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"always_show_minimap_viewport": true,
 	"draw_centered": true,
@@ -19,4 +21,3 @@
 	"rulers": [80],
 	"enable_telemetry": false,
 }
-
