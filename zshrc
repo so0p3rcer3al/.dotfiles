@@ -46,11 +46,13 @@ alias grep='grep -inC5 --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias rm='rm -v --one-file-system'
 alias ls='ls --color=auto -CFt --group-directories-first'
 alias ll='ls -alh'
 alias df='df -h'
 alias du='du -h'
 alias find-ps='ps -e | grep '
+alias ..='cd ..'
 
 function mkcd() { mkdir -p $1 && cd $1 }
 function mvcd() { mv $1 && cd $1 }
@@ -65,4 +67,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 [ -f /opt/intel/bin/compilervars.sh ] && \
 	source /opt/intel/bin/compilervars.sh intel64 &> /dev/null
 
+[ -f /usr/local/bin/vimpager ] && \
+	export PAGER=/usr/local/bin/vimpager
 

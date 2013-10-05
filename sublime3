@@ -20,6 +20,7 @@
 	"use_tab_stops": true,
 	"rulers": [-1,80],
 	"wrap_width": 80,
+	"word_wrap": true,
 	"show_tab_close_buttons": false,
 	"enable_telemetry": false,
 }
