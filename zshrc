@@ -56,8 +56,21 @@ alias ..='cd ..'
 
 function mkcd() { mkdir -p $1 && cd $1 }
 function mvcd() { mv $1 && cd $1 }
-function cls() { cd $1 && ls }
-function cll() { cd $1 && ll }
+
+# Do "smart" cd followed by ls:
+# <no arguments> => don't change directory (cd .)
+# <dir name>     => change to dir
+# <file name>    => change to dir of file
+function g() { 1=${1:-.} && [ -d $1 ] && cd $1 || cd `dirname $1` && ls }
+alias g.='g ..'
+alias g..='g ../..'
+alias g...='g ../../..'
+alias g....='g ../../../..'
+alias g.....='g ../../../../..'
+
+alias c='g'
+alias d='g'
+alias l='g'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
