@@ -67,6 +67,8 @@ alias g..='g ../..'
 alias g...='g ../../..'
 alias g....='g ../../../..'
 alias g.....='g ../../../../..'
+alias g~='g ~'
+alias g/='g /'
 
 alias c='g'
 alias d='g'
